@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solomonsweb</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="sunset_logo.png" alt="Logo" class="logo">
+        <h1>StefCodes</h1>
+        <p class="typing-text">👋 Hello, I am Solly, <span id="dynamic-text"></span></p>
+        <div class="icons">
+            <a href="https://x.com/solomonsweb" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+            <a href="https://github.com/solomonsweb/" target="_blank"><img src="github.png" alt="GitHub"></a>
+            <a href="https://www.reddit.com/user/WorkingBeneficial268/" target="_blank"><img src="reddit.png" alt="Reddit"></a>
+        </div>
+    </div>
+    <footer>
+        <p>Made with 💖 by Solly</p>
+    </footer>
+
+    <script>
+        const texts = [
+            "a bad software developer 😂 .",
+            "a passionate coder who loves creating websites.",
+            "a radio station owner.",
+            "photographer!"
+        ];
+        let index = 0;
+        let charIndex = 0;
+        const dynamicText = document.getElementById("dynamic-text");
+
+        function typeText() {
+            if (charIndex < texts[index].length) {
+                dynamicText.textContent += texts[index].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 100);
+            } else {
+                setTimeout(eraseText, 2000);
+            }
+        }
+
+        function eraseText() {
+            if (charIndex > 0) {
+                dynamicText.textContent = texts[index].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseText, 50);
+            } else {
+                index = (index + 1) % texts.length;
+                setTimeout(typeText, 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", typeText);
+    </script>
+</body>
+</html>
