@@ -1,38 +1,41 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #4A90E2, #6A11CB);
-    text-align: center;
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
-
-.container {
-    max-width: 600px;
-}
-
+/* Spinning and circular logo */
 .logo {
     width: 100px;
     margin-bottom: 20px;
+    border-radius: 50%;
+    border: 3px solid white; /* Optional: adds a white border */
+    animation: spin 5s linear infinite;
 }
 
-.typing-text {
-    font-size: 1.2rem;
-    font-weight: bold;
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
+/* Social media icons hover effect */
 .icons img {
     width: 40px;
     margin: 10px;
     cursor: pointer;
+    transition: filter 0.3s ease;
 }
 
+.icons img:hover {
+    filter: brightness(0) invert(1); /* Turns icon white */
+}
+
+/* Footer styling */
 footer {
     position: absolute;
     bottom: 20px;
+    left: 20px;
     font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
 }
